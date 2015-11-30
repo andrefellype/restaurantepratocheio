@@ -1,6 +1,6 @@
 package br.edu.ifnmg.rpc.apresentacao;
 
-import br.edu.ifnmg.rpc.bo.produtoBO;
+import br.edu.ifnmg.rpc.bo.ProdutoBO;
 import br.edu.ifnmg.rpc.dao.UsuarioDAO;
 import br.edu.ifnmg.rpc.domainModel.Produto;
 import br.edu.ifnmg.rpc.domainModel.Usuario;
