@@ -129,7 +129,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         mnuCadastros.setText("   Cadastros      ");
 
         itmMnuDepartamento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        itmMnuDepartamento.setText("    Cliente   ");
+        itmMnuDepartamento.setText("Usuários");
         itmMnuDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmMnuDepartamentoActionPerformed(evt);
@@ -174,7 +174,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void itmMnuDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMnuDepartamentoActionPerformed
- 
+        CadUsuarioForm cadUsuarioForm = new CadUsuarioForm();
+        cadUsuarioForm.setVisible(true);
+        cadUsuarioForm.toFront();
+        JDP1.add(cadUsuarioForm);
     }//GEN-LAST:event_itmMnuDepartamentoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
