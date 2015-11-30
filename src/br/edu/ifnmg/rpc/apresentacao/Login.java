@@ -1,6 +1,8 @@
 package br.edu.ifnmg.rpc.apresentacao;
 
 import java.awt.Toolkit;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class Login extends javax.swing.JFrame {
 
@@ -30,6 +32,16 @@ public class Login extends javax.swing.JFrame {
     }
 
     public static void main(String[] args) {
+        for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+            try {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                System.err.println("Erro no Tema da Aplicação");
+            }
+        }
         Login telaLogin = new Login();
         telaLogin.setVisible(true);
     }
@@ -49,12 +61,13 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("login de Usuários");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("11295_128x128.png")
+        setIconImage(Toolkit.getDefaultToolkit().getImage("8441_32x32.png")
         );
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "login de Usuários", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(0, 102, 102))); // NOI18N
 
+        btnAcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/rpc/icones/8441_32x32.png"))); // NOI18N
         btnAcessar.setText("Acessar");
         btnAcessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +75,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/rpc/icones/8443_32x32.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -163,8 +177,8 @@ public class Login extends javax.swing.JFrame {
 
     //Chama o metodo logar
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-         getInstancia().setVisible(true);
-         this.dispose();
+        getInstancia().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAcessarActionPerformed
 
 
