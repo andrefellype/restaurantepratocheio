@@ -5,23 +5,23 @@
  */
 package br.edu.ifnmg.rpc.dao;
 
-import br.edu.ifnmg.rpc.domainModel.Produto;
-import br.edu.ifnmg.rpc.repositorio.ProdutoRepositorio;
+import br.edu.ifnmg.rpc.domainModel.Pedido;
+import br.edu.ifnmg.rpc.repositorio.PedidoRepositorio;
 import java.util.List;
 
 /**
  *
  * @author ALUNO 2015-1
  */
-public class ProdutoDAO extends DAOGenerico<Produto> implements ProdutoRepositorio {
+public class PedidoDAO extends DAOGenerico<Pedido> implements PedidoRepositorio {
 
-    public ProdutoDAO() {
-        super(Produto.class);
+    public PedidoDAO() {
+        super(Pedido.class);
     }
 
     @Override
-    public List<Produto> Buscar(Produto obj) {
-        return Like("nome", obj.getNome())
+    public List<Pedido> Buscar(Pedido filtro) {
+        return Like("numerocartao", filtro.getNumerocartao())
                 .Buscar();
     }
 

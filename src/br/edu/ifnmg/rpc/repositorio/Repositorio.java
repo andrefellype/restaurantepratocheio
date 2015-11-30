@@ -8,6 +8,7 @@ public interface Repositorio<T> {
     
     boolean Salvar(T obj);
     boolean Apagar(T obj);
+    boolean Refresh(T obj);
     T Abrir(Long id);
     List<T> Buscar(T obj);
     

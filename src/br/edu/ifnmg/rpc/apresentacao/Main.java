@@ -1,7 +1,10 @@
 package br.edu.ifnmg.rpc.apresentacao;
 
 import br.edu.ifnmg.rpc.bo.produtoBO;
+import br.edu.ifnmg.rpc.dao.UsuarioDAO;
 import br.edu.ifnmg.rpc.domainModel.Produto;
+import br.edu.ifnmg.rpc.domainModel.Usuario;
+import br.edu.ifnmg.rpc.repositorio.UsuarioRepositorio;
 
 public class Main {
 
@@ -9,14 +12,14 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Produto prod = new Produto();
-        prod.setNome("Xerecão");
-        prod.setTipo("Gay");
-        prod.setValor(10.00);
-        
-        produtoBO bo = new produtoBO();
-        bo.salvar(prod);
-
+        UsuarioRepositorio repositorio = new UsuarioDAO();
+        Usuario usuario = new Usuario();
+        usuario.setNome("nome");
+        usuario.setLogin("login");
+        usuario.setSenha("senha");
+        usuario.setStatus(true);
+        usuario.setTipo("Administrador");
+        repositorio.Salvar(usuario);
     }
 
 }
