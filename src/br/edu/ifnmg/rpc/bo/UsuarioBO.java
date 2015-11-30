@@ -27,4 +27,17 @@ public class UsuarioBO {
             throw new Exception();
         }
     }
+    
+    public void Apagar(Usuario usuario) throws Exception {
+        UsuarioRepositorio repositorio = new UsuarioDAO();
+        if (!repositorio.Apagar(usuario)) {
+            throw new Exception();
+        }
+    }
+     public void Refresh(Usuario usuario) throws Exception {
+        UsuarioRepositorio repositorio = new UsuarioDAO();
+        if (!repositorio.Refresh(usuario)) {
+            throw new Exception();
+        }
+    }
 }
