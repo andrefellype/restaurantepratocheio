@@ -6,7 +6,6 @@
 package br.edu.ifnmg.rpc.domainModel;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,18 +17,26 @@ import javax.persistence.Id;
  * @author ALUNO 2015-1
  */
 @Entity
-public class Produto implements Serializable {
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    
     @Column(length = 250, nullable = false, unique = true)
     private String nome;
-
-    @Column(precision = 8, scale = 2)
-    private BigDecimal valor;
+    
+    @Column(length = 250, nullable = false, unique = true)
+    private String login;
+    
+    @Column(length = 250, nullable = false)
+    private String senha;
+    
+    @Column(length = 250, nullable = false)
+    private String tipo;
+    
+    private boolean status;
 
     public Long getId() {
         return id;
@@ -47,12 +54,36 @@ public class Produto implements Serializable {
         this.nome = nome;
     }
 
-    public BigDecimal getValor() {
-        return valor;
+    public String getLogin() {
+        return login;
     }
 
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Override
@@ -65,10 +96,10 @@ public class Produto implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Produto)) {
+        if (!(object instanceof Usuario)) {
             return false;
         }
-        Produto other = (Produto) object;
+        Usuario other = (Usuario) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -77,7 +108,7 @@ public class Produto implements Serializable {
 
     @Override
     public String toString() {
-        return this.nome;
+        return "br.edu.ifnmg.rpc.dao.Usuario[ id=" + id + " ]";
     }
 
 }

@@ -7,29 +7,42 @@ package br.edu.ifnmg.rpc.domainModel;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author ALUNO 2015-1
  */
 @Entity
-public class Produto implements Serializable {
+public class Pedido implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(length = 250, nullable = false, unique = true)
-    private String nome;
+    @Column(length = 250, nullable = false)
+    private String numerocartao;
+
+    @Temporal(TemporalType.DATE)
+    private Date data;
+
+    private List<Produto> produtos;
 
     @Column(precision = 8, scale = 2)
-    private BigDecimal valor;
+    private BigDecimal total;
+
+    @ManyToOne
+    private Usuario usuario;
 
     public Long getId() {
         return id;
@@ -39,20 +52,44 @@ public class Produto implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNumerocartao() {
+        return numerocartao;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNumerocartao(String numerocartao) {
+        this.numerocartao = numerocartao;
     }
 
-    public BigDecimal getValor() {
-        return valor;
+    public Date getData() {
+        return data;
     }
 
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
@@ -65,10 +102,10 @@ public class Produto implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Produto)) {
+        if (!(object instanceof Pedido)) {
             return false;
         }
-        Produto other = (Produto) object;
+        Pedido other = (Pedido) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -77,7 +114,7 @@ public class Produto implements Serializable {
 
     @Override
     public String toString() {
-        return this.nome;
+        return "br.edu.ifnmg.rpc.dao.Pedido[ id=" + id + " ]";
     }
 
 }

@@ -3,6 +3,9 @@
   <persistence-unit name="RestaurantePratoCheioPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.edu.ifnmg.rpc.domainModel.Produto</class>
+    <class>br.edu.ifnmg.rpc.domainModel.Usuario</class>
+    <class>br.edu.ifnmg.rpc.domainModel.Pedido</class>
+    <class>br.edu.ifnmg.rpc.domainModel.Pagamento</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/restaurante?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
