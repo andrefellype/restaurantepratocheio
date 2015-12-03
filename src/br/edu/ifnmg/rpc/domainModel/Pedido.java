@@ -29,6 +29,7 @@ public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Cliente cliente;
 
     @Column(length = 250, nullable = false)
     private String numerocartao;
@@ -50,6 +51,14 @@ public class Pedido implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public String getNumerocartao() {

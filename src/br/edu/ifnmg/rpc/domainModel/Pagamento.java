@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.ifnmg.rpc.domainModel;
 
 import java.io.Serializable;
@@ -13,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,12 +27,17 @@ public class Pagamento implements Serializable {
 
     @OneToOne
     private Pedido pedido;
-
+    
+    @ManyToOne
+    private TipoPagamento tipoPagamento ;
+    
     @Column(precision = 8, scale = 2)
     private BigDecimal total;
 
     @Column(length = 250, nullable = false)
     private String status;
+    
+    private Date dataVencimento;
 
     @Temporal(TemporalType.DATE)
     private Date data;
@@ -57,6 +58,14 @@ public class Pagamento implements Serializable {
         this.pedido = pedido;
     }
 
+    public TipoPagamento getTipoPagamento() {
+        return tipoPagamento;
+    }
+
+    public void setTipoPagamento(TipoPagamento tipoPagamento) {
+        this.tipoPagamento = tipoPagamento;
+    }    
+    
     public BigDecimal getTotal() {
         return total;
     }
@@ -86,6 +95,14 @@ public class Pagamento implements Serializable {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
+    }
+
+    public Date getDataVencimento() {
+        return dataVencimento;
+    }
+
+    public void setDataVencimento(Date dataVencimento) {
+        this.dataVencimento = dataVencimento;
     }
 
     @Override
