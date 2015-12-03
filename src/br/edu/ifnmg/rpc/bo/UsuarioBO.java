@@ -7,8 +7,11 @@ package br.edu.ifnmg.rpc.bo;
 
 import br.edu.ifnmg.rpc.dao.UsuarioDAO;
 import br.edu.ifnmg.rpc.domainModel.Usuario;
+import br.edu.ifnmg.rpc.excecoes.SenhasDiferentesException;
+import br.edu.ifnmg.rpc.excecoes.VazioException;
 import br.edu.ifnmg.rpc.repositorio.UsuarioRepositorio;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,5 +42,17 @@ public class UsuarioBO {
         if (!repositorio.Refresh(usuario)) {
             throw new Exception();
         }
+    }
+     
+    public void validar(String nome, String login,String senha,String confSenha) throws Exception{
+        
+        if(!nome.isEmpty() && !login.isEmpty() && !senha.isEmpty() && !confSenha.isEmpty()){
+            if(!senha.equals(confSenha)){
+                throw new SenhasDiferentesException();
+            }
+        }else{
+            throw new VazioException();
+        }
+        
     }
 }

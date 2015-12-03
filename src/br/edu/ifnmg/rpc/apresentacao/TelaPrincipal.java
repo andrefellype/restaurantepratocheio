@@ -39,7 +39,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
    
 
     //Metodo configura a posição do formularios internos em relação ao painel(CENTRO)
-    //ESSE METODO É CHAMADO SEMPRE QUE O USUARIO ABRE ALGUMA TELA DE FORMULARIO(Cadastro Gerente, Diretor e outras);
+    //ESSE METODO É CHAMADO SEMPRE QUE O USUARIO ABRE ALGUMA TELA DE FORMULARIO;
     private void centralizaForm(JInternalFrame frame) {
 
         Dimension desktopSize = JDP1.getSize();
@@ -60,7 +60,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lblHora = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuCadastros = new javax.swing.JMenu();
-        itmMnuDepartamento = new javax.swing.JMenuItem();
+        itmMnuUsuarios = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestão de Usuários");
@@ -128,14 +128,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         mnuCadastros.setText("   Cadastros      ");
 
-        itmMnuDepartamento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        itmMnuDepartamento.setText("Usuários");
-        itmMnuDepartamento.addActionListener(new java.awt.event.ActionListener() {
+        itmMnuUsuarios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        itmMnuUsuarios.setText("Usuários");
+        itmMnuUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmMnuDepartamentoActionPerformed(evt);
+                itmMnuUsuariosActionPerformed(evt);
             }
         });
-        mnuCadastros.add(itmMnuDepartamento);
+        mnuCadastros.add(itmMnuUsuarios);
 
         jMenuBar1.add(mnuCadastros);
 
@@ -173,19 +173,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowOpened
 
-    private void itmMnuDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMnuDepartamentoActionPerformed
+    private void itmMnuUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMnuUsuariosActionPerformed
         CadUsuarioForm cadUsuarioForm = new CadUsuarioForm();
         cadUsuarioForm.setVisible(true);
         centralizaForm(cadUsuarioForm);
         cadUsuarioForm.toFront();
         JDP1.add(cadUsuarioForm);
-    }//GEN-LAST:event_itmMnuDepartamentoActionPerformed
+    }//GEN-LAST:event_itmMnuUsuariosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Data;
     private javax.swing.JLabel Hora;
     private javax.swing.JDesktopPane JDP1;
-    private javax.swing.JMenuItem itmMnuDepartamento;
+    private javax.swing.JMenuItem itmMnuUsuarios;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblData;
