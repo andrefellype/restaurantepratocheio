@@ -42,6 +42,8 @@ public class CadUsuarioForm extends javax.swing.JInternalFrame{
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setClosable(true);
+        setMaximizable(true);
         setTitle("Cadastrar Usuários");
 
         lblNome.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -132,7 +134,7 @@ public class CadUsuarioForm extends javax.swing.JInternalFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

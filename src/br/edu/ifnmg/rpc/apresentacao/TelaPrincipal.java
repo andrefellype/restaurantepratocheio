@@ -176,6 +176,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void itmMnuDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMnuDepartamentoActionPerformed
         CadUsuarioForm cadUsuarioForm = new CadUsuarioForm();
         cadUsuarioForm.setVisible(true);
+        centralizaForm(cadUsuarioForm);
         cadUsuarioForm.toFront();
         JDP1.add(cadUsuarioForm);
     }//GEN-LAST:event_itmMnuDepartamentoActionPerformed
