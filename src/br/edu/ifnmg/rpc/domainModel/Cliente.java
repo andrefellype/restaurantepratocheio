@@ -25,6 +25,15 @@ public class Cliente implements Serializable {
     private String telefone;
     private String email;
     private String endereco;
+    private String cpf;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
     public Long getId() {
         return id;
