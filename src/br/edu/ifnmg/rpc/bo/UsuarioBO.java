@@ -30,29 +30,30 @@ public class UsuarioBO {
             throw new Exception();
         }
     }
-    
+
     public void Apagar(Usuario usuario) throws Exception {
         UsuarioRepositorio repositorio = new UsuarioDAO();
         if (!repositorio.Apagar(usuario)) {
             throw new Exception();
         }
     }
-     public void Refresh(Usuario usuario) throws Exception {
+
+    public void Refresh(Usuario usuario) throws Exception {
         UsuarioRepositorio repositorio = new UsuarioDAO();
         if (!repositorio.Refresh(usuario)) {
             throw new Exception();
         }
     }
-     
-    public void validar(String nome, String login,String senha,String confSenha) throws Exception{
-        
-        if(!nome.isEmpty() && !login.isEmpty() && !senha.isEmpty() && !confSenha.isEmpty()){
-            if(!senha.equals(confSenha)){
+
+    public void validar(String nome, String login, String senha, String confSenha) throws Exception {
+
+        if (!nome.isEmpty() && !login.isEmpty() && !senha.isEmpty() && !confSenha.isEmpty()) {
+            if (!senha.equals(confSenha)) {
                 throw new SenhasDiferentesException();
             }
-        }else{
+        } else {
             throw new VazioException();
         }
-        
+
     }
 }

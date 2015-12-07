@@ -1,6 +1,10 @@
 package br.edu.ifnmg.rpc.apresentacao;
 
+import br.edu.ifnmg.rpc.bo.UsuarioBO;
+import br.edu.ifnmg.rpc.domainModel.Usuario;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 

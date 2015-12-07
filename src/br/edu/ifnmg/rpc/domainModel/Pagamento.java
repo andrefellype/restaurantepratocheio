@@ -37,6 +37,7 @@ public class Pagamento implements Serializable {
     @Column(length = 250, nullable = false)
     private String status;
     
+    @Temporal(TemporalType.DATE)
     private Date dataVencimento;
 
     @Temporal(TemporalType.DATE)
