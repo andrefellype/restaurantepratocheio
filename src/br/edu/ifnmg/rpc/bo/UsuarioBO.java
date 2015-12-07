@@ -7,6 +7,7 @@ package br.edu.ifnmg.rpc.bo;
 
 import br.edu.ifnmg.rpc.dao.UsuarioDAO;
 import br.edu.ifnmg.rpc.domainModel.Usuario;
+import br.edu.ifnmg.rpc.excecoes.LoginInvalido;
 import br.edu.ifnmg.rpc.excecoes.SenhasDiferentesException;
 import br.edu.ifnmg.rpc.excecoes.VazioException;
 import br.edu.ifnmg.rpc.repositorio.UsuarioRepositorio;
@@ -18,6 +19,18 @@ import javax.swing.JOptionPane;
  * @author ALUNO 2015-1
  */
 public class UsuarioBO {
+
+    public Usuario login(Usuario usuario) throws VazioException, LoginInvalido {
+        if (usuario.getLogin().isEmpty() || usuario.getSenha().isEmpty()) {
+            throw new VazioException();
+        }
+        UsuarioRepositorio repositorio = new UsuarioDAO();
+        Usuario usuarioLogado = repositorio.login(usuario);
+        if (usuarioLogado == null) {
+            throw new LoginInvalido();
+        }
+        return usuarioLogado;
+    }
 
     public List<Usuario> Busca(Usuario filtro) {
         UsuarioRepositorio repositorio = new UsuarioDAO();

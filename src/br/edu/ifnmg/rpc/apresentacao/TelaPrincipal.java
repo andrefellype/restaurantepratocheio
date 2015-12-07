@@ -1,8 +1,7 @@
 package br.edu.ifnmg.rpc.apresentacao;
 
-
-
 import static br.edu.ifnmg.rpc.apresentacao.Login.getInstancia;
+import br.edu.ifnmg.rpc.domainModel.Usuario;
 import java.awt.Dimension;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.ActionEvent;
@@ -16,27 +15,25 @@ import javax.swing.Timer;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
+     private Usuario usuario;
     // metodo abaixo instancia um Painel de Area de Trabalho(JDP1)
     //O painel JDP1 é area onde os formularios internos vão ser instanciados
-    public static JDesktopPane getPainel() {
+    public static JDesktopPane getPainel(Usuario usuario) {
 
-        return getInstancia().JDP1;
+        return getInstancia(usuario).JDP1;
 
     }
 
     //Variavel que recebe os dados do usuario que logou no sistema 
-   // private static Usuario usuarioLogado;
+    // private static Usuario usuarioLogado;
 
-    public TelaPrincipal() {
+    public TelaPrincipal(Usuario usuario) {
         initComponents();
+        this.usuario = usuario;
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
 
-
-
     }
-
-   
 
     //Metodo configura a posição do formularios internos em relação ao painel(CENTRO)
     //ESSE METODO É CHAMADO SEMPRE QUE O USUARIO ABRE ALGUMA TELA DE FORMULARIO;
@@ -201,6 +198,5 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Hora.setText(String.format("%1$tH:%1$tM:%1$tS", now));
         }
     }
-
 
 }

@@ -26,4 +26,14 @@ public class UsuarioDAO extends DAOGenerico<Usuario> implements UsuarioRepositor
                 .Buscar();
     }
 
+    @Override
+    public Usuario login(Usuario usuario) {
+        List<Usuario> lista = Like("login", usuario.getLogin()).Like("senha", usuario.getSenha()).Buscar();
+        if (lista.isEmpty()) {
+            return null;
+        } else {
+            return lista.get(0);
+        }
+    }
+
 }
