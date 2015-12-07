@@ -2,9 +2,12 @@ package br.edu.ifnmg.rpc.apresentacao;
 
 import br.edu.ifnmg.rpc.bo.UsuarioBO;
 import br.edu.ifnmg.rpc.domainModel.Usuario;
+import br.edu.ifnmg.rpc.excecoes.LoginInvalido;
+import br.edu.ifnmg.rpc.excecoes.VazioException;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -17,9 +20,9 @@ public class Login extends javax.swing.JFrame {
     private static TelaPrincipal TP;
     // private static Usuario userLogado;
 
-    public static TelaPrincipal getInstancia() {
+    public static TelaPrincipal getInstancia(Usuario usuario) {
         if (TP == null) {
-            TP = new TelaPrincipal();
+            TP = new TelaPrincipal(usuario);
 
         }
         return TP;
@@ -181,8 +184,19 @@ public class Login extends javax.swing.JFrame {
 
     //Chama o metodo logar
     private void btnAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessarActionPerformed
-        getInstancia().setVisible(true);
-        this.dispose();
+        UsuarioBO ubo = new UsuarioBO();
+        Usuario usuario = new Usuario();
+        usuario.setLogin(txtLogin.getText().trim());
+        usuario.setSenha(txtSenha.getText().trim());
+        try {
+            Usuario usuarioLogado = ubo.login(usuario);
+            getInstancia(usuario).setVisible(true);
+            this.dispose();
+        } catch (VazioException e) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", "Login Usuário", JOptionPane.ERROR_MESSAGE);
+        } catch (LoginInvalido e) {
+            JOptionPane.showMessageDialog(null, "Dados Inválidos!", "Login Usuário", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAcessarActionPerformed
 
 
