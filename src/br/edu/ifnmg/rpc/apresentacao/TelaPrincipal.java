@@ -49,6 +49,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu1 = new javax.swing.JMenu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         JDP1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         Data = new javax.swing.JLabel();
@@ -58,6 +60,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuCadastros = new javax.swing.JMenu();
         itmMnuUsuarios = new javax.swing.JMenuItem();
+        mnuPedido = new javax.swing.JMenu();
+        itmnuPedido = new javax.swing.JMenuItem();
+
+        jMenu1.setText("jMenu1");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestão de Usuários");
@@ -136,6 +145,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnuCadastros);
 
+        mnuPedido.setText("Pedido");
+
+        itmnuPedido.setText("Cadastrar Pedido");
+        itmnuPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmnuPedidoActionPerformed(evt);
+            }
+        });
+        mnuPedido.add(itmnuPedido);
+
+        jMenuBar1.add(mnuPedido);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,16 +199,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
         JDP1.add(cadUsuarioForm);
     }//GEN-LAST:event_itmMnuUsuariosActionPerformed
 
+    private void itmnuPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmnuPedidoActionPerformed
+       CadPedidoForm cadPedidoForm = new CadPedidoForm();
+        cadPedidoForm.setVisible(true);
+        centralizaForm(cadPedidoForm);
+        cadPedidoForm.toFront();
+        JDP1.add(cadPedidoForm);
+    }//GEN-LAST:event_itmnuPedidoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Data;
     private javax.swing.JLabel Hora;
     private javax.swing.JDesktopPane JDP1;
     private javax.swing.JMenuItem itmMnuUsuarios;
+    private javax.swing.JMenuItem itmnuPedido;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JLabel lblData;
     private javax.swing.JLabel lblHora;
     private javax.swing.JMenu mnuCadastros;
+    private javax.swing.JMenu mnuPedido;
     // End of variables declaration//GEN-END:variables
 
     class hora implements ActionListener {
