@@ -15,7 +15,8 @@ import javax.swing.Timer;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
-     private Usuario usuario;
+    private Usuario usuario;
+
     // metodo abaixo instancia um Painel de Area de Trabalho(JDP1)
     //O painel JDP1 é area onde os formularios internos vão ser instanciados
     public static JDesktopPane getPainel(Usuario usuario) {
@@ -26,7 +27,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     //Variavel que recebe os dados do usuario que logou no sistema 
     // private static Usuario usuarioLogado;
-
     public TelaPrincipal(Usuario usuario) {
         initComponents();
         this.usuario = usuario;
@@ -60,6 +60,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuCadastros = new javax.swing.JMenu();
         itmMnuUsuarios = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         mnuPedido = new javax.swing.JMenu();
         itmnuPedido = new javax.swing.JMenuItem();
 
@@ -143,6 +144,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         mnuCadastros.add(itmMnuUsuarios);
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Produto");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        mnuCadastros.add(jMenuItem1);
+
         jMenuBar1.add(mnuCadastros);
 
         mnuPedido.setText("Pedido");
@@ -207,6 +217,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         JDP1.add(cadPedidoForm);
     }//GEN-LAST:event_itmnuPedidoActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        CadProdutoForm cadProdutoForm = new CadProdutoForm();
+        cadProdutoForm.setVisible(true);
+        centralizaForm(cadProdutoForm);
+        cadProdutoForm.toFront();
+        JDP1.add(cadProdutoForm);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Data;
     private javax.swing.JLabel Hora;
@@ -215,6 +233,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmnuPedido;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JLabel lblData;

@@ -31,6 +31,9 @@ public class Produto implements Serializable {
     @Column(precision = 8, scale = 2)
     private BigDecimal valor;
 
+    @Column(name = "tipo", length = 250, nullable = false, unique = true)
+    private String tipo;
+
     public Long getId() {
         return id;
     }
@@ -55,6 +58,15 @@ public class Produto implements Serializable {
         this.valor = valor;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
