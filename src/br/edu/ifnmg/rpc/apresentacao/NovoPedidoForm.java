@@ -121,40 +121,7 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame{
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
        
-        String nome = txtNome.getText().toString().trim();
-        String login = txtLogin.getText().toString().trim();
-        String senha = txtSenha.getText().toString().trim();
-        String confirmaSenha = txtConfirmarSenha.getText().toString().trim();
-        String tipo = cmbTipo.getSelectedItem().toString();
-        
-        UsuarioBO ubo = new UsuarioBO();
-        Usuario usuario = new Usuario();
-        try{
-            //Enviar dados para validação
-            ubo.validar(nome, login, senha, confirmaSenha);
-            
-            //Setar Valores no Objeto usuário
-            usuario.setNome(nome);
-            usuario.setLogin(login);
-            usuario.setSenha(senha);
-            usuario.setTipo(tipo);
-            usuario.setStatus(true);
-            
-            //Salvar Dados
-            ubo.Salvar(usuario);
-            
-           JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!","Cadastrar Usuário", JOptionPane.INFORMATION_MESSAGE);
-           this.Limpar();
-        }catch(VazioException v){
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos!","Cadastrar Usuário", JOptionPane.ERROR_MESSAGE);
-        }catch(SenhasDiferentesException s){
-            JOptionPane.showMessageDialog(null, "As senhas não conferem!","Cadastrar Usuário", JOptionPane.ERROR_MESSAGE);
-            txtSenha.requestFocus();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Erro ao realizar cadastro!","Cadastrar Usuário", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        
+        int codigo = Integer.parseInt(txtCodigo.getText().toString());
         
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -163,12 +130,8 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame{
     }//GEN-LAST:event_txtCodigoActionPerformed
 
     public void Limpar(){
-        txtNome.setText("");
-        txtLogin.setText("");
-        txtSenha.setText("");
-        txtConfirmarSenha.setText("");
-        cmbTipo.setSelectedIndex(0);
-        txtNome.requestFocus();
+        txtCodigo.setText("");
+        
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
