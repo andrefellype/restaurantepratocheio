@@ -35,7 +35,7 @@ public class CadPedidoForm extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
-        setMaximizable(true);
+        setIconifiable(true);
         setTitle("Cadastrar Pedido");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Comida a Quilo", "PF", "Bebida" }));
