@@ -200,7 +200,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itmMnuUsuariosActionPerformed
 
     private void itmnuPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmnuPedidoActionPerformed
-       CadPedidoForm cadPedidoForm = new CadPedidoForm();
+       AddItemPedidoForm cadPedidoForm = new AddItemPedidoForm();
         cadPedidoForm.setVisible(true);
         centralizaForm(cadPedidoForm);
         cadPedidoForm.toFront();
