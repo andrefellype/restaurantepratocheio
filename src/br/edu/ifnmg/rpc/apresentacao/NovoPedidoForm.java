@@ -10,16 +10,18 @@ import br.edu.ifnmg.rpc.domainModel.Usuario;
 import br.edu.ifnmg.rpc.excecoes.SenhasDiferentesException;
 import br.edu.ifnmg.rpc.excecoes.VazioException;
 import java.awt.Dimension;
+import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
-
 
 /**
  *
  * @author ALUNO 2015-1
  */
-public class NovoPedidoForm extends javax.swing.JInternalFrame{
+public class NovoPedidoForm extends javax.swing.JInternalFrame {
 
+    JDesktopPane JDP = TelaPrincipal.getPainel(null);
+    
     /**
      * Creates new form CadUsuarioForm
      */
@@ -64,11 +66,6 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame{
         JDP1.setBorder(javax.swing.BorderFactory.createTitledBorder("Codigo do Pedido"));
 
         txtCodigo.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout JDP1Layout = new javax.swing.GroupLayout(JDP1);
         JDP1.setLayout(JDP1Layout);
@@ -122,31 +119,32 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame{
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       
-        int codigo = Integer.parseInt(txtCodigo.getText().toString());
-        CadPedidoForm cadPedidoForm = new CadPedidoForm();
-        cadPedidoForm.setVisible(true);
-        centralizaForm(cadPedidoForm);
-        cadPedidoForm.toFront();
-        JDP1.add(cadPedidoForm);
+        String codigo = txtCodigo.getText().trim();
+        if (codigo.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "O campo não pode ser vazio!","Cadastrar Novo Pedido", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            this.dispose();
+            AddItemPedidoForm aadPedidoForm = new AddItemPedidoForm(codigo);
+            aadPedidoForm.setVisible(true);
+            centralizaForm(aadPedidoForm);
+            aadPedidoForm.toFront();
+            JDP.add(aadPedidoForm);
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
-
-    public void Limpar(){
+    public void Limpar() {
         txtCodigo.setText("");
-        
+
     }
+
     private void centralizaForm(JInternalFrame frame) {
 
-        Dimension desktopSize = JDP1.getSize();
+        Dimension desktopSize = JDP.getSize();
         Dimension jInternalFrameSize = frame.getSize();
 
         frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2, (desktopSize.height - jInternalFrameSize.height) / 2);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JDP1;
     private javax.swing.JButton btnCancelar;

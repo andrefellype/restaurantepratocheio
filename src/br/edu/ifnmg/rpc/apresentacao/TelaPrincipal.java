@@ -24,7 +24,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         return getInstancia(usuario).JDP1;
 
     }
-
+    
     //Variavel que recebe os dados do usuario que logou no sistema 
     // private static Usuario usuarioLogado;
     public TelaPrincipal(Usuario usuario) {
@@ -109,7 +109,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(756, Short.MAX_VALUE)
                 .addComponent(lblData)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Data, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
