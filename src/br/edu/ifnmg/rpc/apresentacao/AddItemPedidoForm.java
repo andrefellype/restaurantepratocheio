@@ -6,6 +6,9 @@
 package br.edu.ifnmg.rpc.apresentacao;
 
 import br.edu.ifnmg.rpc.bo.PedidoBO;
+import java.awt.Dimension;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +18,7 @@ import javax.swing.JOptionPane;
 public class AddItemPedidoForm extends javax.swing.JInternalFrame {
     
     String codPedido;
+    JDesktopPane JDP1 = TelaPrincipal.getPainel(null);
     
     /**
      * Creates new form CadPedidoForm
@@ -63,6 +67,7 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setMaximizable(true);
+        setResizable(true);
         setTitle("Cadastrar Pedido");
 
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione uma opção", "Comida a Quilo", "PF", "Bebida" }));
@@ -253,8 +258,22 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
+        ListaPedidoForm listarPedido = new ListaPedidoForm();
+        listarPedido.setVisible(true);
+        centralizaForm(listarPedido);
+        listarPedido.toFront();
+        JDP1.add(listarPedido);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void centralizaForm(JInternalFrame frame) {
+
+        Dimension desktopSize = JDP1.getSize();
+        Dimension jInternalFrameSize = frame.getSize();
+
+        frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2, (desktopSize.height - jInternalFrameSize.height) / 2);
+    }
+
+    
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         
         //Variáveis

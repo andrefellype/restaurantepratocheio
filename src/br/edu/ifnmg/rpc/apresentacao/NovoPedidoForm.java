@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class NovoPedidoForm extends javax.swing.JInternalFrame {
 
-    JDesktopPane JDP = TelaPrincipal.getPainel(null);
+    JDesktopPane JDP1 = TelaPrincipal.getPainel(null);
     
     /**
      * Creates new form CadUsuarioForm
@@ -40,7 +40,7 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame {
 
         btnCancelar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
-        JDP1 = new javax.swing.JPanel();
+        panel = new javax.swing.JPanel();
         txtCodigo = new javax.swing.JTextField();
 
         setClosable(true);
@@ -63,22 +63,22 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame {
             }
         });
 
-        JDP1.setBorder(javax.swing.BorderFactory.createTitledBorder("Codigo do Pedido"));
+        panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Codigo do Pedido"));
 
         txtCodigo.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
 
-        javax.swing.GroupLayout JDP1Layout = new javax.swing.GroupLayout(JDP1);
-        JDP1.setLayout(JDP1Layout);
-        JDP1Layout.setHorizontalGroup(
-            JDP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JDP1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(txtCodigo)
                 .addContainerGap())
         );
-        JDP1Layout.setVerticalGroup(
-            JDP1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JDP1Layout.createSequentialGroup()
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
@@ -90,7 +90,7 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JDP1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(26, 26, 26)
@@ -103,7 +103,7 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JDP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,6 +116,11 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
+        ListaPedidoForm listarPedido = new ListaPedidoForm();
+        listarPedido.setVisible(true);
+        centralizaForm(listarPedido);
+        listarPedido.toFront();
+        JDP1.add(listarPedido);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -128,7 +133,7 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame {
             aadPedidoForm.setVisible(true);
             centralizaForm(aadPedidoForm);
             aadPedidoForm.toFront();
-            JDP.add(aadPedidoForm);
+            JDP1.add(aadPedidoForm);
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -139,16 +144,16 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame {
 
     private void centralizaForm(JInternalFrame frame) {
 
-        Dimension desktopSize = JDP.getSize();
+        Dimension desktopSize = JDP1.getSize();
         Dimension jInternalFrameSize = frame.getSize();
 
         frame.setLocation((desktopSize.width - jInternalFrameSize.width) / 2, (desktopSize.height - jInternalFrameSize.height) / 2);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JDP1;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JPanel panel;
     private javax.swing.JTextField txtCodigo;
     // End of variables declaration//GEN-END:variables
 }

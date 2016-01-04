@@ -32,7 +32,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.usuario = usuario;
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
-
     }
 
     //Metodo configura a posição do formularios internos em relação ao painel(CENTRO)
@@ -62,8 +61,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         itmMnuUsuarios = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         mnuPedido = new javax.swing.JMenu();
-        itmnuPedido = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        itMnuListar = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -158,21 +156,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         mnuPedido.setText("Pedido");
 
-        itmnuPedido.setText("Cadastrar Pedido");
-        itmnuPedido.addActionListener(new java.awt.event.ActionListener() {
+        itMnuListar.setText("Listar Pedidos");
+        itMnuListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmnuPedidoActionPerformed(evt);
+                itMnuListarActionPerformed(evt);
             }
         });
-        mnuPedido.add(itmnuPedido);
-
-        jMenuItem2.setText("Listar Pedidos");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        mnuPedido.add(jMenuItem2);
+        mnuPedido.add(itMnuListar);
 
         jMenuBar1.add(mnuPedido);
 
@@ -218,14 +208,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         JDP1.add(cadUsuarioForm);
     }//GEN-LAST:event_itmMnuUsuariosActionPerformed
 
-    private void itmnuPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmnuPedidoActionPerformed
-        NovoPedidoForm novopedido = new NovoPedidoForm();
-        novopedido.setVisible(true);
-        centralizaForm(novopedido);
-        novopedido.toFront();
-        JDP1.add(novopedido);
-    }//GEN-LAST:event_itmnuPedidoActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         CadProdutoForm cadProdutoForm = new CadProdutoForm();
         cadProdutoForm.setVisible(true);
@@ -234,24 +216,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         JDP1.add(cadProdutoForm);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void itMnuListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itMnuListarActionPerformed
         ListaPedidoForm listarPedido = new ListaPedidoForm();
         listarPedido.setVisible(true);
         centralizaForm(listarPedido);
         listarPedido.toFront();
         JDP1.add(listarPedido);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_itMnuListarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Data;
     private javax.swing.JLabel Hora;
     private javax.swing.JDesktopPane JDP1;
+    private javax.swing.JMenuItem itMnuListar;
     private javax.swing.JMenuItem itmMnuUsuarios;
-    private javax.swing.JMenuItem itmnuPedido;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JLabel lblData;
