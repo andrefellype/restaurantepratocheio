@@ -284,19 +284,10 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
         //Validar Campos
         PedidoBO pedidoBO = new PedidoBO();
                 
-        int tipo = cmbTipo.getSelectedIndex();
+        String tipo = cmbTipo.getSelectedItem().toString();
         
-        if (tipo == 1) {
-            //Comida a KG
-            qtdK = Double.parseDouble(qtdKG.getText().toString().trim());
-        } else if (tipo == 2) {
-            //Bebida
-            qtdBebida = Integer.parseInt(txtqtdBebida.getValue().toString());
-        } else if(tipo == 3) {
-           //PF
-            qtdPf = Integer.parseInt(txtqtdPF.getValue().toString());
-        }
-
+        System.out.println(tipo);
+        
         //Comandos para adicionar item ao pedido
         
         
