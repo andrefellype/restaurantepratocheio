@@ -5,9 +5,13 @@
  */
 package br.edu.ifnmg.rpc.apresentacao;
 
+import br.edu.ifnmg.rpc.dao.PedidoDAO;
+import br.edu.ifnmg.rpc.domainModel.Pedido;
 import java.awt.Dimension;
+import java.util.List;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
+import javax.swing.table.AbstractTableModel;
 
 /**
  *
@@ -21,6 +25,7 @@ public class ListaPedidoForm extends javax.swing.JInternalFrame {
      */
     public ListaPedidoForm() {
         initComponents();
+        this.ConfigurarTblPedido();
     }
 
     /**
@@ -33,6 +38,8 @@ public class ListaPedidoForm extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblPedidos = new javax.swing.JTable();
         btnNovoPedido = new javax.swing.JButton();
         btnFinalizarPedido = new javax.swing.JButton();
 
@@ -42,15 +49,34 @@ public class ListaPedidoForm extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pedidos em aberto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 0, 14))); // NOI18N
 
+        tblPedidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblPedidos);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 528, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         btnNovoPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/rpc/icones/add-icon3232.png"))); // NOI18N
@@ -101,7 +127,55 @@ public class ListaPedidoForm extends javax.swing.JInternalFrame {
         novopedido.toFront();
         JDP1.add(novopedido);
     }//GEN-LAST:event_btnNovoPedidoActionPerformed
-    
+   private void ConfigurarTblPedido() {
+        TablePedidoModel model = new TablePedidoModel(new PedidoDAO().Buscar());
+        tblPedidos.setModel(model);
+    }
+
+    private class TablePedidoModel extends AbstractTableModel {
+
+        private List<Pedido> lista;
+
+        public TablePedidoModel(List<Pedido> lista) {
+            this.lista = lista;
+        }
+
+        
+        @Override
+        public int getRowCount() {
+            return lista.size();
+        }
+
+        
+        @Override
+        public int getColumnCount() {
+            return 2;
+        }
+
+       
+        @Override
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            Pedido pedido = lista.get(rowIndex);
+            if (columnIndex == 0) {
+                return pedido.getNumerocartao();
+            } else if (columnIndex == 1) {
+                return pedido.getCliente().getNome();
+            }
+            return null;
+        }
+
+       
+        @Override
+        public String getColumnName(int column) {
+            if(column == 0){
+                return "Codigo";
+            }else if(column == 1){
+                return "Nome";
+            }
+            return null;
+        }
+
+    }
     private void centralizaForm(JInternalFrame frame) {
 
         Dimension desktopSize = JDP1.getSize();
@@ -115,5 +189,7 @@ public class ListaPedidoForm extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnFinalizarPedido;
     private javax.swing.JButton btnNovoPedido;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblPedidos;
     // End of variables declaration//GEN-END:variables
 }
