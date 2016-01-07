@@ -7,6 +7,7 @@ package br.edu.ifnmg.rpc.apresentacao;
 
 import br.edu.ifnmg.rpc.bo.PedidoBO;
 import br.edu.ifnmg.rpc.bo.ProdutoBO;
+import br.edu.ifnmg.rpc.domainModel.ItensPedido;
 import br.edu.ifnmg.rpc.domainModel.Produto;
 import java.awt.Dimension;
 import java.util.List;
@@ -68,7 +69,7 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
         cmbTipo = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         panelBebida = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox();
+        cmbBebida = new javax.swing.JComboBox();
         txtqtdBebida = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
         panelPF = new javax.swing.JPanel();
@@ -200,19 +201,16 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelBebida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelBebida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(panelComidaKg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(panelComidaKg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCodPedido)))
@@ -253,21 +251,21 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
 
     private void cmbTipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTipoItemStateChanged
         String tipo = cmbTipo.getSelectedItem().toString();
-        
-        if(tipo == "Comida a Quilo"){
+
+        if (tipo == "Comida a Quilo") {
             this.panelBebida.setVisible(false);
             this.panelPF.setVisible(false);
             this.panelComidaKg.setVisible(true);
-        }else if(tipo == "PF"){
+        } else if (tipo == "PF") {
             this.panelBebida.setVisible(false);
             this.panelPF.setVisible(true);
             this.panelComidaKg.setVisible(false);
-        }else if(tipo == "Bebida"){
+        } else if (tipo == "Bebida") {
             this.panelBebida.setVisible(true);
             this.panelPF.setVisible(false);
             this.panelComidaKg.setVisible(false);
         }
-        
+
     }//GEN-LAST:event_cmbTipoItemStateChanged
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -289,43 +287,49 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
 
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-         
-        //Variáveis
-        
-        
-        //Validar Campos
-        PedidoBO pedidoBO = new PedidoBO();
-        
-        String tipo = cmbTipo.getSelectedItem().toString();
-        
-        if(tipo == "Comida a Quilo"){
-            
-        }else if(tipo == "PF"){
-            this.panelBebida.setVisible(false);
-            this.panelPF.setVisible(true);
-            this.panelComidaKg.setVisible(false);
-        }else if(tipo == "Bebida"){
-            this.panelBebida.setVisible(true);
-            this.panelPF.setVisible(false);
-            this.panelComidaKg.setVisible(false);
-        }
-        
+
+//        //Variáveis
+//        
+//        
+//        //Validar Campos
+//        PedidoBO pedidoBO = new PedidoBO();
+//        
+//        String tipo = cmbTipo.getSelectedItem().toString();
+//        
+//        if(tipo == "Comida a Quilo"){
+//            
+//        }else if(tipo == "PF"){
+//           panelBebida.setVisible(false);
+//           panelPF.setVisible(true);
+//           panelComidaKg.setVisible(false);
+//        }else if(tipo == "Bebida"){
+//            this.panelBebida.setVisible(true);
+//            this.panelPF.setVisible(false);
+//            this.panelComidaKg.setVisible(false);
+//        }
+//        
         //Comandos para adicionar item ao pedido
-        
-        
         //Mensagem de Sucesso
-        JOptionPane.showMessageDialog(this, "Item Adicionado com sucesso!", "Adicionar item ao pedido", JOptionPane.INFORMATION_MESSAGE);
         
+        ItensPedido item = new ItensPedido();
+       
+        item.setProduto(null);
+        item.setQuantidade(1);
+        item.setValorUnitario(1.20);
+        item.setValorTotal(1.50);
+        
+        JOptionPane.showMessageDialog(this, "Item Adicionado com sucesso!", "Adicionar item ao pedido", JOptionPane.INFORMATION_MESSAGE);
+
         //Fechar a Tela atual
         this.dispose();
-        
+
         // Chamar Tela de listagem
         ListaPedidoForm listarPedido = new ListaPedidoForm();
         listarPedido.setVisible(true);
         centralizaForm(listarPedido);
         listarPedido.toFront();
         JDP1.add(listarPedido);
-        
+
     }//GEN-LAST:event_btnAddActionPerformed
 
 
