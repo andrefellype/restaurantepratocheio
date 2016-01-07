@@ -33,8 +33,8 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
         panelComidaKg.setVisible(false);
         panelBebida.setVisible(false);
         panelPF.setVisible(false);
-        qtdBebida.setValue(0);
-        qtdPF.setValue(0);
+        txtqtdBebida.setValue(0);
+        txtqtdPF.setValue(0);
         qtdKG.setText("");
         txtCodPedido.setText(codPedido);
     }
@@ -52,10 +52,10 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         panelBebida = new javax.swing.JPanel();
         jComboBox2 = new javax.swing.JComboBox();
-        qtdBebida = new javax.swing.JSpinner();
+        txtqtdBebida = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
         panelPF = new javax.swing.JPanel();
-        qtdPF = new javax.swing.JSpinner();
+        txtqtdPF = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         panelComidaKg = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -93,7 +93,7 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
             .addGroup(panelBebidaLayout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtdBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtqtdBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBebidaLayout.setVerticalGroup(
@@ -104,7 +104,7 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelBebidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(qtdBebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtqtdBebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -120,7 +120,7 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtdPF, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtqtdPF, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPFLayout.setVerticalGroup(
@@ -129,7 +129,7 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelPFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(qtdPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtqtdPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -210,7 +210,7 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtCodPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -218,7 +218,7 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelBebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,10 +277,10 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         
         //Variáveis
-        double qtdK = Double.parseDouble(qtdKG.getText().toString().trim());
+        double qtdK;
         int qtdPf;
-        String qtdBebida;
-        
+        int qtdBebida;
+                
         //Validar Campos
         PedidoBO pedidoBO = new PedidoBO();
                 
@@ -288,25 +288,31 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
         
         if (tipo == 1) {
             //Comida a KG
-            
+            qtdK = Double.parseDouble(qtdKG.getText().toString().trim());
         } else if (tipo == 2) {
             //Bebida
+            qtdBebida = Integer.parseInt(txtqtdBebida.getValue().toString());
         } else if(tipo == 3) {
            //PF
+            qtdPf = Integer.parseInt(txtqtdPF.getValue().toString());
         }
 
         //Comandos para adicionar item ao pedido
         
+        
+        //Mensagem de Sucesso
         JOptionPane.showMessageDialog(this, "Item Adicionado com sucesso!", "Adicionar item ao pedido", JOptionPane.INFORMATION_MESSAGE);
         
-        int res = JOptionPane.showConfirmDialog(this, "Deseja adicionar outro item a este pedido?","Adicionar item ao pedido",JOptionPane.YES_NO_OPTION);
-       
-        if(res == 0){
-            this.configuraTela();
-        }else{
-            //Chamar tela de Listar pedidos
-            this.dispose();
-        }
+        //Fechar a Tela atual
+        this.dispose();
+        
+        // Chamar Tela de listagem
+        ListaPedidoForm listarPedido = new ListaPedidoForm();
+        listarPedido.setVisible(true);
+        centralizaForm(listarPedido);
+        listarPedido.toFront();
+        JDP1.add(listarPedido);
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
 
@@ -323,9 +329,9 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelBebida;
     private javax.swing.JPanel panelComidaKg;
     private javax.swing.JPanel panelPF;
-    private javax.swing.JSpinner qtdBebida;
     private javax.swing.JTextField qtdKG;
-    private javax.swing.JSpinner qtdPF;
     private javax.swing.JTextField txtCodPedido;
+    private javax.swing.JSpinner txtqtdBebida;
+    private javax.swing.JSpinner txtqtdPF;
     // End of variables declaration//GEN-END:variables
 }

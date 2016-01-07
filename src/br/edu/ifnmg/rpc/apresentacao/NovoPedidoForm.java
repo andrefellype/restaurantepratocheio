@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -21,7 +22,7 @@ import javax.swing.JOptionPane;
 public class NovoPedidoForm extends javax.swing.JInternalFrame {
 
     JDesktopPane JDP1 = TelaPrincipal.getPainel(null);
-    
+
     /**
      * Creates new form CadUsuarioForm
      */
@@ -124,22 +125,41 @@ public class NovoPedidoForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        String codigo = txtCodigo.getText().trim();
-        if (codigo.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "O campo não pode ser vazio!","Cadastrar Novo Pedido", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            this.dispose();
-            AddItemPedidoForm aadPedidoForm = new AddItemPedidoForm(codigo);
-            aadPedidoForm.setVisible(true);
-            centralizaForm(aadPedidoForm);
-            aadPedidoForm.toFront();
-            JDP1.add(aadPedidoForm);
-        }
+        boolean valida = this.ValidaNumero(txtCodigo);
+        if (valida) {
+            String codigo = txtCodigo.getText().trim();
+            if (codigo.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "O campo não pode ser vazio!", "Cadastrar Novo Pedido", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                this.dispose();
+                AddItemPedidoForm aadPedidoForm = new AddItemPedidoForm(codigo);
+                aadPedidoForm.setVisible(true);
+                centralizaForm(aadPedidoForm);
+                aadPedidoForm.toFront();
+                JDP1.add(aadPedidoForm);
+            }
+        }    
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    
 
     public void Limpar() {
         txtCodigo.setText("");
 
+    }
+
+    public boolean ValidaNumero(JTextField Numero) {
+        long valor;
+        if (Numero.getText().length() != 0) {
+            try {
+                valor = Long.parseLong(Numero.getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Esse Campo só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                Numero.grabFocus();
+                return false;
+            }
+        }
+        return true;
     }
 
     private void centralizaForm(JInternalFrame frame) {
