@@ -33,9 +33,9 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
         panelComidaKg.setVisible(false);
         panelBebida.setVisible(false);
         panelPF.setVisible(false);
-        qtdBebida.setValue(0);
-        qtdPF.setValue(0);
-        qtdKG.setText("");
+        txtqtdBebida.setValue(0);
+        txtqtdPF.setValue(0);
+        PrecoQuilo.setText("");
         txtCodPedido.setText(codPedido);
     }
     
@@ -52,14 +52,14 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         panelBebida = new javax.swing.JPanel();
         jComboBox2 = new javax.swing.JComboBox();
-        qtdBebida = new javax.swing.JSpinner();
+        txtqtdBebida = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
         panelPF = new javax.swing.JPanel();
-        qtdPF = new javax.swing.JSpinner();
+        txtqtdPF = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         panelComidaKg = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        qtdKG = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        PrecoQuilo = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -93,7 +93,7 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
             .addGroup(panelBebidaLayout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtdBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtqtdBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBebidaLayout.setVerticalGroup(
@@ -104,7 +104,7 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelBebidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(qtdBebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtqtdBebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -120,8 +120,8 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtdPF, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtqtdPF, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(213, Short.MAX_VALUE))
         );
         panelPFLayout.setVerticalGroup(
             panelPFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,13 +129,13 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelPFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(qtdPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtqtdPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         panelComidaKg.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Comida a Quilo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 0, 12))); // NOI18N
 
-        jLabel4.setText("KG:");
+        jLabel6.setText("Preço:");
 
         javax.swing.GroupLayout panelComidaKgLayout = new javax.swing.GroupLayout(panelComidaKg);
         panelComidaKg.setLayout(panelComidaKgLayout);
@@ -143,19 +143,19 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
             panelComidaKgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelComidaKgLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtdKG)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PrecoQuilo)
                 .addContainerGap())
         );
         panelComidaKgLayout.setVerticalGroup(
             panelComidaKgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelComidaKgLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelComidaKgLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelComidaKgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(qtdKG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel6)
+                    .addComponent(PrecoQuilo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/ifnmg/rpc/icones/8443_32x32.png"))); // NOI18N
@@ -195,22 +195,22 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(panelComidaKg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 40, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCodPedido)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtCodPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -218,13 +218,13 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelBebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelComidaKg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -235,25 +235,22 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbTipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTipoItemStateChanged
-        int tipo = cmbTipo.getSelectedIndex();
-
-        if (tipo == 1) {
-            panelComidaKg.setVisible(true);
-            panelBebida.setVisible(false);
-            panelPF.setVisible(false);
-        } else if (tipo == 2) {
-            panelComidaKg.setVisible(false);
-            panelBebida.setVisible(false);
-            panelPF.setVisible(true);
-        } else if(tipo == 3) {
-            panelComidaKg.setVisible(false);
-            panelBebida.setVisible(true);
-            panelPF.setVisible(false);
-        }else{
-            panelComidaKg.setVisible(false);
-            panelBebida.setVisible(false);
-            panelPF.setVisible(false);
+        String tipo = cmbTipo.getSelectedItem().toString();
+        
+        if(tipo == "Comida a Quilo"){
+            this.panelBebida.setVisible(false);
+            this.panelPF.setVisible(false);
+            this.panelComidaKg.setVisible(true);
+        }else if(tipo == "PF"){
+            this.panelBebida.setVisible(false);
+            this.panelPF.setVisible(true);
+            this.panelComidaKg.setVisible(false);
+        }else if(tipo == "Bebida"){
+            this.panelBebida.setVisible(true);
+            this.panelPF.setVisible(false);
+            this.panelComidaKg.setVisible(false);
         }
+        
     }//GEN-LAST:event_cmbTipoItemStateChanged
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -275,42 +272,48 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
 
     
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        
+         
         //Variáveis
-        double qtdK = Double.parseDouble(qtdKG.getText().toString().trim());
-        int qtdPf;
-        String qtdBebida;
+        
         
         //Validar Campos
         PedidoBO pedidoBO = new PedidoBO();
-                
-        int tipo = cmbTipo.getSelectedIndex();
         
-        if (tipo == 1) {
-            //Comida a KG
+        String tipo = cmbTipo.getSelectedItem().toString();
+        
+        if(tipo == "Comida a Quilo"){
             
-        } else if (tipo == 2) {
-            //Bebida
-        } else if(tipo == 3) {
-           //PF
+        }else if(tipo == "PF"){
+            this.panelBebida.setVisible(false);
+            this.panelPF.setVisible(true);
+            this.panelComidaKg.setVisible(false);
+        }else if(tipo == "Bebida"){
+            this.panelBebida.setVisible(true);
+            this.panelPF.setVisible(false);
+            this.panelComidaKg.setVisible(false);
         }
-
+        
         //Comandos para adicionar item ao pedido
         
+        
+        //Mensagem de Sucesso
         JOptionPane.showMessageDialog(this, "Item Adicionado com sucesso!", "Adicionar item ao pedido", JOptionPane.INFORMATION_MESSAGE);
         
-        int res = JOptionPane.showConfirmDialog(this, "Deseja adicionar outro item a este pedido?","Adicionar item ao pedido",JOptionPane.YES_NO_OPTION);
-       
-        if(res == 0){
-            this.configuraTela();
-        }else{
-            //Chamar tela de Listar pedidos
-            this.dispose();
-        }
+        //Fechar a Tela atual
+        this.dispose();
+        
+        // Chamar Tela de listagem
+        ListaPedidoForm listarPedido = new ListaPedidoForm();
+        listarPedido.setVisible(true);
+        centralizaForm(listarPedido);
+        listarPedido.toFront();
+        JDP1.add(listarPedido);
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField PrecoQuilo;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JComboBox cmbTipo;
@@ -318,14 +321,13 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel panelBebida;
     private javax.swing.JPanel panelComidaKg;
     private javax.swing.JPanel panelPF;
-    private javax.swing.JSpinner qtdBebida;
-    private javax.swing.JTextField qtdKG;
-    private javax.swing.JSpinner qtdPF;
     private javax.swing.JTextField txtCodPedido;
+    private javax.swing.JSpinner txtqtdBebida;
+    private javax.swing.JSpinner txtqtdPF;
     // End of variables declaration//GEN-END:variables
 }

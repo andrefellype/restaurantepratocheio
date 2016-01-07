@@ -187,8 +187,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        //metodo que seta a hora e data atual no sistema(Na barra de status)
+        ListaPedidoForm listarPedido = new ListaPedidoForm();
+        listarPedido.setVisible(true);
+        centralizaForm(listarPedido);
+        listarPedido.toFront();
+        JDP1.add(listarPedido);
 
+        //metodo que seta a hora e data atual no sistema(Na barra de status)
         this.setExtendedState(MAXIMIZED_BOTH);
 
         Date DataSistema = new Date();
