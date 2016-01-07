@@ -22,6 +22,7 @@ public class ProdutoDAO extends DAOGenerico<Produto> implements ProdutoRepositor
     @Override
     public List<Produto> Buscar(Produto obj) {
         return Like("nome", obj.getNome())
+                .Like("tipo", obj.getTipo())
                 .Buscar();
     }
 

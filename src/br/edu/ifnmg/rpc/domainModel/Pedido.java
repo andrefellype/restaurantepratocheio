@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -37,7 +38,8 @@ public class Pedido implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date data;
 
-    private List<Produto> produtos;
+    @OneToMany
+    private List<ItensPedido> itensPedido;
 
     @Column(precision = 8, scale = 2)
     private BigDecimal total;
@@ -77,12 +79,16 @@ public class Pedido implements Serializable {
         this.data = data;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
+    public List<ItensPedido> getItensPedido() {
+        return itensPedido;
     }
 
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
+    public void setItensPedido(List<ItensPedido> itensPedido) {
+        this.itensPedido = itensPedido;
+    }
+
+    public void addItem(ItensPedido item) {
+        itensPedido.add(item);
     }
 
     public BigDecimal getTotal() {

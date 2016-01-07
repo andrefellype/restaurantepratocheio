@@ -3,6 +3,7 @@
   <persistence-unit name="RestaurantePratoCheioPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.edu.ifnmg.rpc.domainModel.Cliente</class>
+    <class>br.edu.ifnmg.rpc.domainModel.ItensPedido</class>
     <class>br.edu.ifnmg.rpc.domainModel.Pagamento</class>
     <class>br.edu.ifnmg.rpc.domainModel.Pedido</class>
     <class>br.edu.ifnmg.rpc.domainModel.Produto</class>
