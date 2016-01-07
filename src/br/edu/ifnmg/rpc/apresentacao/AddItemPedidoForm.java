@@ -315,8 +315,8 @@ public class AddItemPedidoForm extends javax.swing.JInternalFrame {
        
         item.setProduto(null);
         item.setQuantidade(1);
-        item.setValorUnitario(1.20);
-        item.setValorTotal(1.50);
+       // item.setValorUnitario(1.20);
+       // item.setValorTotal(1.50);
         
         JOptionPane.showMessageDialog(this, "Item Adicionado com sucesso!", "Adicionar item ao pedido", JOptionPane.INFORMATION_MESSAGE);
 
